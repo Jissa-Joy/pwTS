@@ -1,5 +1,5 @@
 import { Locator, Page, expect, Cookie} from "@playwright/test";
-import { getCookies } from "undici-types";
+
 
 export default class Login{
     readonly page: Page ;
@@ -16,7 +16,9 @@ export default class Login{
 
 
     }
-
+    async navigate1(url1: string){
+        await this.page.goto(url1);
+        }
     async loginUser(user1, password1)
     {
         await this.Username.fill(user1);

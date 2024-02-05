@@ -1,5 +1,5 @@
 import { Page, Locator,Cookie} from "@playwright/test";
-import {getCookies} from "undici-types"
+
 
 export default class Register{
    readonly page: Page ;
@@ -35,6 +35,10 @@ export default class Register{
         this.regButton=page.getByRole('button', { name: 'Register' })
 
     }
+
+    async navigate(url: string){
+        await this.page.goto(url);
+        }
 
 
     async registerUser(fname,lname,addr,city,state,zip,phone,ssn,userName,password,confirmPwd){

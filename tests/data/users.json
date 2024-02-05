@@ -4,7 +4,8 @@
     "username2":"joy"
 },
 "password": {
-    "pwd1":"test@123"
+    "pwd1":"test@123",
+    "pwd2":"test@123"
 }
 
 }
