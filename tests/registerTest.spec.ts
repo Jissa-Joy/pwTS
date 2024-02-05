@@ -1,9 +1,9 @@
 import {test, expect} from "@playwright/test";
 import { Utils } from "../utils/main";
 import Register from "../pages/registerPage";
-import loginPage from "../pages/loginPage";
 import Login from "../pages/loginPage";
 
+const users = JSON.parse(JSON.stringify(require("../tests/data/users.json")))
 
 
 test("TC1", async ({page}) => {
@@ -11,10 +11,12 @@ test("TC1", async ({page}) => {
   const reg= new Register(page);
   const login = new Login(page);
 
-  await reg.navigate("https://parabank.parasoft.com/parabank/register.htm")
+ // await reg.navigate("https://parabank.parasoft.com/parabank/register.htm")
   await login.navigate1('https://parabank.parasoft.com/parabank/index.htm;jsessionid=2314A94F794117BFA353444FCFA0C718');
-  const user = await Utils.importFile('users');
-  await login.loginUser(user.usernames.username1,user.password.pwd1)
+  //const user = await Utils.importFile(users);
+ 
+ // await login.loginUser(user.usernames.username1,user.password.pwd1)
+ await login.loginUser(users.usernames.username1, users.password.pwd1);
 
 });
 
